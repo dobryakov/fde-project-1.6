@@ -47,6 +47,10 @@ def parse_brief(brand):
         mh = re.search(r"hero product is (?:the\s*)?\*\*(.+?)\*\*", t, re.I)
         if mh:
             out["hero"] = mh.group(1).strip()
+        # Safe wording the brief allows for claims (what creators CAN say).
+        msw = re.search(r"Safe wording:\s*(.+)", t, re.I)
+        if msw:
+            out["safe_wording"] = msw.group(1).strip().rstrip(".")
         # Ship countries: the briefs say "to the US and Canada only".
         ship = []
         low = t.lower()

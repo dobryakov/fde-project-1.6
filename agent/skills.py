@@ -27,6 +27,7 @@ def load(brand):
     shared_meta, shared_body = parse(os.path.join(SKILLS, "_shared.md"))
     meta["products"] = [p.strip() for p in str(meta.get("products", "")).split(";") if p.strip()]
     meta["banned"] = [p.strip() for p in str(meta.get("banned", "")).split(",") if p.strip()]
+    meta["allowed"] = [p.strip() for p in str(meta.get("allowed", "")).split(",") if p.strip()]
     # The brand brief in brands/ is the source of truth for every number. Read it
     # at run time and let it override the (possibly stale) skill front matter.
     brief_vals = brief.parse_brief(brand)

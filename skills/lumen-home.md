@@ -13,6 +13,7 @@ bonus_days: 14
 sample_min_followers: 8000
 sample_min_views: 3000
 banned: non-toxic, clean air, purifies, natural, all natural, chemical free, burns clean, smells clean
+allowed: cozy, warm glow, hand poured
 state: live
 ---
 
