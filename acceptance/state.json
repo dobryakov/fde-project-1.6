@@ -1,0 +1,191 @@
+{
+  "timestamp": "2026-11-17T14:49:14.592312+00:00",
+  "root": "/home/ubuntu/ironco/fde-project-1.6",
+  "rollup": {
+    "det_total": 22,
+    "det_passed": 20,
+    "det_failed": 2,
+    "llm_manual": 11,
+    "overall": "FAIL"
+  },
+  "deterministic": [
+    {
+      "id": "AC-1",
+      "status": "PASS",
+      "reason": "agent/run.py parses and accepts TASKS_FILE RUN_DIR positionally",
+      "check": "check_command_contract"
+    },
+    {
+      "id": "AC-2",
+      "status": "PASS",
+      "reason": "requirements.txt present at repo root",
+      "check": "check_structure"
+    },
+    {
+      "id": "AC-3",
+      "status": "PASS",
+      "reason": "default provider claude_cli, haiku/sonnet, no new providers or hard-coded keys",
+      "check": "check_provider"
+    },
+    {
+      "id": "AC-4",
+      "status": "PASS",
+      "reason": "sim/ and dashboard.py have no tracked modifications",
+      "check": "check_command_contract"
+    },
+    {
+      "id": "AC-5",
+      "status": "PASS",
+      "reason": "agent/ references no sim internals (*.pack / state.db / pack.py)",
+      "check": "check_boundaries"
+    },
+    {
+      "id": "AC-6",
+      "status": "PASS",
+      "reason": "no hard-coded brand rate/bonus numbers in agent/; briefs/skills loaded at run time",
+      "check": "check_hardcoded_numbers"
+    },
+    {
+      "id": "AC-10",
+      "status": "PASS",
+      "reason": "meta= passed to send_* in 4 file(s)",
+      "check": "check_meta_usage"
+    },
+    {
+      "id": "AC-12",
+      "status": "PASS",
+      "reason": "zero policy violations across runs ['r1', 'r2']",
+      "check": "check_dashboard_results"
+    },
+    {
+      "id": "AC-14",
+      "status": "PASS",
+      "reason": "escalations within 10/day in every run ['r1', 'r2']",
+      "check": "check_dashboard_results"
+    },
+    {
+      "id": "AC-15",
+      "status": "PASS",
+      "reason": "escalation routing: Marcus threshold 250000, Tomas & Nora routes populated",
+      "check": "check_escalation_config"
+    },
+    {
+      "id": "AC-17",
+      "status": "FAIL",
+      "reason": "outreach msg/confirmed over 5 (sub-full efficiency): {'r2': 8.12}",
+      "check": "check_dashboard_results"
+    },
+    {
+      "id": "AC-18",
+      "status": "FAIL",
+      "reason": "outreach below target: {'r1:R101': '88/90', 'r2:R201': '57/58', 'r2:R204': '32/58'}",
+      "check": "check_dashboard_results"
+    },
+    {
+      "id": "AC-19",
+      "status": "PASS",
+      "reason": "all five post-round-1 feedback rules present in skills/",
+      "check": "check_feedback_rules"
+    },
+    {
+      "id": "AC-21",
+      "status": "PASS",
+      "reason": "v3 Fernhill backup saved outside brands/: ['archive/fernhill-skin-v3.md']; brands/ is v4",
+      "check": "check_feedback_rules"
+    },
+    {
+      "id": "AC-22",
+      "status": "PASS",
+      "reason": "agent/, skills/ present; 2 eval run folder(s)",
+      "check": "check_structure"
+    },
+    {
+      "id": "AC-23",
+      "status": "PASS",
+      "reason": "README.md has the one command and a model/settings note",
+      "check": "check_structure"
+    },
+    {
+      "id": "AC-24",
+      "status": "PASS",
+      "reason": "notes.md has Improvements, Skill review, Design, Eval",
+      "check": "check_structure"
+    },
+    {
+      "id": "AC-25",
+      "status": "PASS",
+      "reason": "run folders present for both rounds: ['r1', 'r2']",
+      "check": "check_structure"
+    },
+    {
+      "id": "AC-26",
+      "status": "PASS",
+      "reason": "all 2 notes eval score(s) match dashboard.json",
+      "check": "check_eval_matches_notes"
+    },
+    {
+      "id": "AC-27",
+      "status": "PASS",
+      "reason": "session export/transcript found: ['session-export.md']",
+      "check": "check_structure"
+    },
+    {
+      "id": "AC-28",
+      "status": "PASS",
+      "reason": "time-spent recorded in notes.md/README.md",
+      "check": "check_structure"
+    },
+    {
+      "id": "AC-32",
+      "status": "PASS",
+      "reason": "neither agent/ nor skills/ read gops-local-skills at run time",
+      "check": "check_boundaries"
+    }
+  ],
+  "llm_manual": [
+    {
+      "id": "AC-7",
+      "status": "MANUAL"
+    },
+    {
+      "id": "AC-8",
+      "status": "MANUAL"
+    },
+    {
+      "id": "AC-9",
+      "status": "MANUAL"
+    },
+    {
+      "id": "AC-11",
+      "status": "MANUAL"
+    },
+    {
+      "id": "AC-13",
+      "status": "MANUAL"
+    },
+    {
+      "id": "AC-16",
+      "status": "MANUAL"
+    },
+    {
+      "id": "AC-20",
+      "status": "MANUAL"
+    },
+    {
+      "id": "AC-29",
+      "status": "MANUAL"
+    },
+    {
+      "id": "AC-30",
+      "status": "MANUAL"
+    },
+    {
+      "id": "AC-31",
+      "status": "MANUAL"
+    },
+    {
+      "id": "AC-33",
+      "status": "MANUAL"
+    }
+  ]
+}
