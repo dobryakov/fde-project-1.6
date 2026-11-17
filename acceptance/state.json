@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-17T14:49:14.592312+00:00",
+  "timestamp": "2026-11-17T20:38:18.705617+00:00",
   "root": "/home/ubuntu/ironco/fde-project-1.6",
   "rollup": {
     "det_total": 22,
@@ -48,7 +48,7 @@
     {
       "id": "AC-10",
       "status": "PASS",
-      "reason": "meta= passed to send_* in 4 file(s)",
+      "reason": "meta= passed to send_* in 5 file(s)",
       "check": "check_meta_usage"
     },
     {
@@ -72,13 +72,13 @@
     {
       "id": "AC-17",
       "status": "FAIL",
-      "reason": "outreach msg/confirmed over 5 (sub-full efficiency): {'r2': 8.12}",
+      "reason": "outreach msg/confirmed over 5 (sub-full efficiency): {'r2': 6.17}",
       "check": "check_dashboard_results"
     },
     {
       "id": "AC-18",
-      "status": "FAIL",
-      "reason": "outreach below target: {'r1:R101': '88/90', 'r2:R201': '57/58', 'r2:R204': '32/58'}",
+      "status": "PASS",
+      "reason": "every outreach task meets its confirmed target",
       "check": "check_dashboard_results"
     },
     {
@@ -119,8 +119,8 @@
     },
     {
       "id": "AC-26",
-      "status": "PASS",
-      "reason": "all 2 notes eval score(s) match dashboard.json",
+      "status": "FAIL",
+      "reason": "eval/dashboard mismatch: r: no dashboard.json; r: no dashboard.json; r1: notes=4.0 dashboard=86.0; r1: notes=3.0 dashboard=86.0; r: no dashboard.json",
       "check": "check_eval_matches_notes"
     },
     {

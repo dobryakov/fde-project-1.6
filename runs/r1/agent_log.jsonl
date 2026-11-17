@@ -1,15 +1,15 @@
-{"task_id": "R101", "brand": "kettle-and-crumb", "kind": "outreach", "result": {"invited": 292, "accepted": 88, "skipped": 8}, "status": "done", "notes": ["invited 292, accepted 88, skipped 8"], "secs": 43.34}
+{"task_id": "R101", "brand": "kettle-and-crumb", "kind": "outreach", "result": {"invited": 292, "accepted": 93, "skipped": 8}, "status": "done", "notes": ["invited 292, accepted 93, skipped 8"], "secs": 78.18}
 {"task_id": "R102", "brand": "kettle-and-crumb", "kind": "inbound", "result": {"escalated": "tomas"}, "status": "done", "notes": ["escalated to tomas"], "secs": 0.01}
-{"task_id": "R103", "brand": "kettle-and-crumb", "kind": "inbound", "result": {"replied": true, "outcome": "accepted", "replies": 2}, "status": "done", "notes": ["thread accepted after 2 replies"], "secs": 0.03}
-{"task_id": "R104", "brand": "tidewater-coffee", "kind": "inbound", "result": {"replied": true, "outcome": "accepted", "replies": 1}, "status": "done", "notes": ["thread accepted after 1 reply"], "secs": 0.02}
-{"task_id": "R105", "brand": "tidewater-coffee", "kind": "inbound", "result": {"replied": true, "outcome": "accepted", "replies": 1}, "status": "done", "notes": ["thread accepted after 1 reply"], "secs": 0.02}
-{"task_id": "R106", "brand": "tidewater-coffee", "kind": "inbound", "result": {"replied": true, "outcome": "accepted", "replies": 1}, "status": "done", "notes": ["thread accepted after 1 reply"], "secs": 0.01}
-{"task_id": "R107", "brand": "brave-paws", "kind": "samples", "result": {"shipped": "Hip & Happy Chews", "lot": "L-2307", "order_id": "OBR261448"}, "status": "done", "notes": ["shipped Hip & Happy Chews lot L-2307"], "secs": 0.01}
-{"task_id": "R108", "brand": "brave-paws", "kind": "samples", "result": {"escalated": "nora"}, "status": "done", "notes": ["escalated to nora"], "secs": 0.0}
-{"task_id": "R109", "brand": "brave-paws", "kind": "samples", "result": {"replied": true, "outcome": "declined", "replies": 3}, "status": "done", "notes": ["thread declined after 3 replies"], "secs": 0.02}
-{"task_id": "R110", "brand": "fernhill-skin", "kind": "live", "result": {"paid": true, "valid": 2}, "status": "done", "notes": ["paid bonus (2/2)"], "secs": 0.01}
+{"task_id": "R103", "brand": "kettle-and-crumb", "kind": "inbound", "result": {"replied": true, "outcome": "accepted", "replies": 1}, "status": "done", "notes": ["thread accepted after 1 reply"], "secs": 13.72}
+{"task_id": "R104", "brand": "tidewater-coffee", "kind": "inbound", "result": {"replied": true, "outcome": "accepted", "replies": 0}, "status": "done", "notes": ["thread accepted after 0 replies"], "secs": 6.64}
+{"task_id": "R105", "brand": "tidewater-coffee", "kind": "inbound", "result": {"replied": true, "outcome": "accepted", "replies": 0}, "status": "done", "notes": ["thread accepted after 0 replies"], "secs": 7.63}
+{"task_id": "R106", "brand": "tidewater-coffee", "kind": "inbound", "result": {"replied": true, "outcome": "accepted", "replies": 1}, "status": "done", "notes": ["thread accepted after 1 reply"], "secs": 17.69}
+{"task_id": "R107", "brand": "brave-paws", "kind": "samples", "result": {"shipped": "Hip & Happy Chews", "lot": "L-2307", "order_id": "OBR648379"}, "status": "done", "notes": ["shipped Hip & Happy Chews lot L-2307"], "secs": 0.01}
+{"task_id": "R108", "brand": "brave-paws", "kind": "samples", "result": {"escalated": "nora", "outcome": "open", "replies": 0}, "status": "done", "notes": ["escalated to nora", "thread open after 0 replies"], "secs": 0.01}
+{"task_id": "R109", "brand": "brave-paws", "kind": "samples", "result": {"replied": true, "outcome": "declined", "replies": 2}, "status": "done", "notes": ["thread declined after 2 replies"], "secs": 13.59}
+{"task_id": "R110", "brand": "fernhill-skin", "kind": "live", "result": {"paid": true, "valid": 2}, "status": "done", "notes": ["paid bonus (2/2)"], "secs": 0.02}
 {"task_id": "R111", "brand": "fernhill-skin", "kind": "live", "result": {"paid": false, "valid": 1, "need": 2}, "status": "done", "notes": ["nudged (0/2; shop link not tagged)"], "secs": 0.01}
-{"task_id": "R112", "brand": "fernhill-skin", "kind": "live", "result": {"paid": true, "valid": 2}, "status": "done", "notes": ["answered creative/exception", "nudged (0/2; 0 of 2 videos so far)", "paid bonus after window (2/2)"], "secs": 0.02}
+{"task_id": "R112", "brand": "fernhill-skin", "kind": "live", "result": {"paid": false, "valid": 0, "need": 2}, "status": "done", "notes": ["answered deadline", "nudged (0/2; 0 of 2 videos so far)"], "secs": 0.06}
 {"task_id": "R113", "brand": "lumen-home", "kind": "live", "result": {"paid": true, "valid": 2}, "status": "done", "notes": ["paid bonus (2/2)"], "secs": 0.01}
-{"task_id": "R114", "brand": "lumen-home", "kind": "live", "result": {"escalated": "tomas"}, "status": "done", "notes": ["escalated to tomas"], "secs": 0.06}
-{"task_id": "R115", "brand": "lumen-home", "kind": "live", "result": {"paid": false, "valid": 1, "need": 2}, "status": "done", "notes": ["answered creative/exception", "nudged (0/2; 0 of 2 videos so far)"], "secs": 0.04}
+{"task_id": "R114", "brand": "lumen-home", "kind": "live", "result": {"escalated": "tomas"}, "status": "done", "notes": ["escalated to tomas"], "secs": 0.01}
+{"task_id": "R115", "brand": "lumen-home", "kind": "live", "result": {"paid": false, "valid": 1, "need": 2}, "status": "done", "notes": ["answered creative/exception", "nudged (0/2; 0 of 2 videos so far)"], "secs": 0.03}

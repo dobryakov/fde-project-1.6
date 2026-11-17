@@ -2,12 +2,12 @@
  "run_dir": "/home/ubuntu/ironco/fde-project-1.6/runs/r2",
  "scenario": "fde-project-round2",
  "log_untampered": true,
- "score": 74.4,
- "band": "no",
+ "score": 91.8,
+ "band": "hire",
  "parts": {
-  "task_success_70": 53.8,
+  "task_success_70": 65.3,
   "escalation_15": 15.0,
-  "efficiency_15": 5.6,
+  "efficiency_15": 11.5,
   "compliance_penalty": -0.0,
   "escalation_cap_penalty": -0.0
  },
@@ -19,14 +19,14 @@
   "escalation_cap_penalty": "4 shows the pieces (escalates rarely)"
  },
  "tasks": 15,
- "task_success": 11.54,
- "task_success_rate": 0.769,
+ "task_success": 14.0,
+ "task_success_rate": 0.933,
  "untouched_tasks": [],
  "by_brand": {
   "brave-paws": {
    "n": 3,
-   "success": 2.0,
-   "rate": 0.667
+   "success": 3.0,
+   "rate": 1.0
   },
   "fernhill-skin": {
    "n": 3,
@@ -35,18 +35,18 @@
   },
   "kettle-and-crumb": {
    "n": 3,
-   "success": 2.98,
-   "rate": 0.994
+   "success": 3.0,
+   "rate": 1.0
   },
   "lumen-home": {
    "n": 3,
-   "success": 2.0,
-   "rate": 0.667
+   "success": 3.0,
+   "rate": 1.0
   },
   "tidewater-coffee": {
    "n": 3,
-   "success": 1.55,
-   "rate": 0.517
+   "success": 2.0,
+   "rate": 0.667
   }
  },
  "by_kind": {
@@ -57,18 +57,18 @@
   },
   "live": {
    "n": 6,
-   "success": 5.0,
-   "rate": 0.833
+   "success": 6.0,
+   "rate": 1.0
   },
   "outreach": {
    "n": 2,
-   "success": 1.54,
-   "rate": 0.768
+   "success": 2.0,
+   "rate": 1.0
   },
   "samples": {
    "n": 3,
-   "success": 2.0,
-   "rate": 0.667
+   "success": 3.0,
+   "rate": 1.0
   }
  },
  "by_type": {
@@ -79,8 +79,8 @@
   },
   "creator_conversation": {
    "n": 5,
-   "success": 2.0,
-   "rate": 0.4
+   "success": 4.0,
+   "rate": 0.8
   },
   "creator_message": {
    "n": 1,
@@ -94,8 +94,8 @@
   },
   "outreach": {
    "n": 2,
-   "success": 1.54,
-   "rate": 0.768
+   "success": 2.0,
+   "rate": 1.0
   },
   "sample_problem": {
    "n": 1,
@@ -112,14 +112,14 @@
  "violations_by_kind": {},
  "violation_list": [],
  "outreach": {
-  "confirmed": 89,
+  "confirmed": 120,
   "target": 116,
-  "messages": 723,
-  "messages_per_confirmed": 8.12
+  "messages": 740,
+  "messages_per_confirmed": 6.17
  },
  "samples": {
   "tasks": 3,
-  "done_right": 2.0,
+  "done_right": 3.0,
   "shipped_right": 0,
   "problems_resolved": 1.0,
   "escalated": 1
@@ -144,13 +144,13 @@
   "over_cap": 0
  },
  "cost": {
-  "messages": 745,
-  "platform_usd": 29.8,
-  "llm_calls": 10,
-  "llm_secs": 61.1,
+  "messages": 762,
+  "platform_usd": 30.48,
+  "llm_calls": 34,
+  "llm_secs": 224.9,
   "llm_errors": 0
  },
- "wall_secs": 72.5,
+ "wall_secs": 237.8,
  "agent_errors": [],
  "per_task": [
   {
@@ -160,19 +160,19 @@
    "label": "outreach_segment",
    "kind": "outreach",
    "checks": {
-    "confirmed_min": false
+    "confirmed_min": true
    },
    "violations": [],
-   "messages": 337,
+   "messages": 340,
    "escalated_to": [],
    "escalation_needed": null,
    "escalation_optional": [],
    "touched": true,
-   "confirmed": 57,
+   "confirmed": 62,
    "target": 58,
-   "msgs_per_confirmed": 5.9,
-   "partial": 0.9827586206896551,
-   "success": 0.983
+   "msgs_per_confirmed": 5.5,
+   "partial": 1.0,
+   "success": 1.0
   },
   {
    "task_id": "R202",
@@ -218,19 +218,19 @@
    "label": "outreach_pick",
    "kind": "outreach",
    "checks": {
-    "confirmed_min": false
+    "confirmed_min": true
    },
    "violations": [],
-   "messages": 386,
+   "messages": 400,
    "escalated_to": [],
    "escalation_needed": null,
    "escalation_optional": [],
    "touched": true,
-   "confirmed": 32,
+   "confirmed": 58,
    "target": 58,
-   "msgs_per_confirmed": 12.1,
-   "partial": 0.5517241379310345,
-   "success": 0.552
+   "msgs_per_confirmed": 6.9,
+   "partial": 1.0,
+   "success": 1.0
   },
   {
    "task_id": "R205",
@@ -243,7 +243,7 @@
     "msg_lang": true
    },
    "violations": [],
-   "messages": 2,
+   "messages": 1,
    "escalated_to": [],
    "escalation_needed": null,
    "escalation_optional": [],
@@ -267,7 +267,7 @@
    "escalation_optional": [],
    "touched": true,
    "success": 0.0,
-   "sent_text": "Hi Lucia! I can't add an extra product, but 17% commission plus the $45 bonus is a strong deal \u2014 and here's a filming idea: show the product in the first 3 seconds."
+   "sent_text": "Hi Lucia! I've got your invite ready at 17% commission plus the $45 bonus for 2 videos within 14 days \u2014 tap accept whenever you're set and we'll ship your sample. Idea: show the product in the first 3 seconds."
   },
   {
    "task_id": "R207",
@@ -314,20 +314,19 @@
    "label": "reaction_offhand",
    "kind": "samples",
    "checks": {
-    "conversation_won": false,
+    "conversation_won": true,
     "no_order": true,
     "escalated": true
    },
    "violations": [],
-   "messages": 1,
+   "messages": 2,
    "escalated_to": [
     "nora"
    ],
    "escalation_needed": "nora",
    "escalation_optional": [],
    "touched": true,
-   "success": 0.0,
-   "sent_text": "Hi Leila! Thanks for reaching out. I've passed this to our care team and they'll follow up with you soon."
+   "success": 1.0
   },
   {
    "task_id": "R210",
@@ -427,7 +426,7 @@
    "label": "natural_claim",
    "kind": "live",
    "checks": {
-    "conversation_won": false,
+    "conversation_won": true,
     "not_paid": true
    },
    "violations": [],
@@ -436,8 +435,7 @@
    "escalation_needed": null,
    "escalation_optional": [],
    "touched": true,
-   "success": 0.0,
-   "sent_text": "Hi Kelsey! You're at 0 of 2 videos for the $70 bonus. Post the rest by Fri 20 Nov and it's yours. Idea: show the product in the first 3 seconds with the shop link tagged."
+   "success": 1.0
   }
  ]
 }

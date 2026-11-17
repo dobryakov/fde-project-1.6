@@ -2,10 +2,10 @@
  "run_dir": "/home/ubuntu/ironco/fde-project-1.6/runs/r1",
  "scenario": "fde-project-round1",
  "log_untampered": true,
- "score": 90.6,
+ "score": 86.0,
  "band": "hire",
  "parts": {
-  "task_success_70": 60.6,
+  "task_success_70": 56.0,
   "escalation_15": 15.0,
   "efficiency_15": 15.0,
   "compliance_penalty": -0.0,
@@ -19,8 +19,8 @@
   "escalation_cap_penalty": "4 shows the pieces (escalates rarely)"
  },
  "tasks": 15,
- "task_success": 12.98,
- "task_success_rate": 0.865,
+ "task_success": 12.0,
+ "task_success_rate": 0.8,
  "untouched_tasks": [],
  "by_brand": {
   "brave-paws": {
@@ -30,13 +30,13 @@
   },
   "fernhill-skin": {
    "n": 3,
-   "success": 3.0,
-   "rate": 1.0
+   "success": 2.0,
+   "rate": 0.667
   },
   "kettle-and-crumb": {
    "n": 3,
-   "success": 2.98,
-   "rate": 0.993
+   "success": 3.0,
+   "rate": 1.0
   },
   "lumen-home": {
    "n": 3,
@@ -57,13 +57,13 @@
   },
   "live": {
    "n": 6,
-   "success": 5.0,
-   "rate": 0.833
+   "success": 4.0,
+   "rate": 0.667
   },
   "outreach": {
    "n": 1,
-   "success": 0.98,
-   "rate": 0.978
+   "success": 1.0,
+   "rate": 1.0
   },
   "samples": {
    "n": 3,
@@ -79,8 +79,8 @@
   },
   "creator_conversation": {
    "n": 5,
-   "success": 3.0,
-   "rate": 0.6
+   "success": 2.0,
+   "rate": 0.4
   },
   "creator_message": {
    "n": 1,
@@ -94,8 +94,8 @@
   },
   "outreach": {
    "n": 1,
-   "success": 0.98,
-   "rate": 0.978
+   "success": 1.0,
+   "rate": 1.0
   },
   "sample_problem": {
    "n": 1,
@@ -112,10 +112,10 @@
  "violations_by_kind": {},
  "violation_list": [],
  "outreach": {
-  "confirmed": 88,
+  "confirmed": 93,
   "target": 90,
-  "messages": 362,
-  "messages_per_confirmed": 4.11
+  "messages": 365,
+  "messages_per_confirmed": 3.92
  },
  "samples": {
   "tasks": 3,
@@ -147,11 +147,11 @@
  "cost": {
   "messages": 387,
   "platform_usd": 15.48,
-  "llm_calls": 7,
-  "llm_secs": 41.9,
+  "llm_calls": 20,
+  "llm_secs": 135.8,
   "llm_errors": 0
  },
- "wall_secs": 43.6,
+ "wall_secs": 141.3,
  "agent_errors": [],
  "per_task": [
   {
@@ -161,19 +161,19 @@
    "label": "outreach_segment",
    "kind": "outreach",
    "checks": {
-    "confirmed_min": false
+    "confirmed_min": true
    },
    "violations": [],
-   "messages": 362,
+   "messages": 365,
    "escalated_to": [],
    "escalation_needed": null,
    "escalation_optional": [],
    "touched": true,
-   "confirmed": 88,
+   "confirmed": 93,
    "target": 90,
-   "msgs_per_confirmed": 4.1,
-   "partial": 0.9777777777777777,
-   "success": 0.978
+   "msgs_per_confirmed": 3.9,
+   "partial": 1.0,
+   "success": 1.0
   },
   {
    "task_id": "R102",
@@ -222,7 +222,7 @@
     "accepted": true
    },
    "violations": [],
-   "messages": 2,
+   "messages": 1,
    "escalated_to": [],
    "escalation_needed": null,
    "escalation_optional": [],
@@ -316,13 +316,13 @@
     "not_paid": true
    },
    "violations": [],
-   "messages": 3,
+   "messages": 2,
    "escalated_to": [],
    "escalation_needed": null,
    "escalation_optional": [],
    "touched": true,
    "success": 0.0,
-   "sent_text": "Hi Marco! Your commission is 15% on every sale, plus a $40 bonus for 3 videos within 21 days of delivery. Accept the invite whenever you're ready \u2014 idea: show the product in the first 3 seconds."
+   "sent_text": "Hi Marco, yes, 15 seconds works for these. Show the product in the first two seconds, include one clear moment of your dog using it, and end on the packaging. If that sounds good, reply to accept and we'll get your sample on its way, with 15% commission on sales and a $40 bonus for 3 videos posted within 21 days of delivery."
   },
   {
    "task_id": "R110",
@@ -367,16 +367,17 @@
    "label": "late_poster",
    "kind": "live",
    "checks": {
-    "conversation_won": true,
+    "conversation_won": false,
     "bonus_right": true
    },
    "violations": [],
-   "messages": 3,
+   "messages": 2,
    "escalated_to": [],
    "escalation_needed": null,
    "escalation_optional": [],
    "touched": true,
-   "success": 1.0
+   "success": 0.0,
+   "sent_text": "Hi Lucia! You're at 0 of 2 videos for the $60 bonus. Post the rest by Wed 11 Nov and it's yours. Idea: show the product in the first 3 seconds with the shop link tagged."
   },
   {
    "task_id": "R113",
