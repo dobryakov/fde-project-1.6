@@ -5,11 +5,14 @@ import re
 
 from affiliate_center import SimError
 from common import ROOT, by_handle, creators, first_name
-from convo import answer, send_inv, send_msg
+from convo import answer, render, send_inv, send_msg
 from policy import can_contact
 
 IDEAS = {"kettle-and-crumb": "a crunch close up in the first 3 seconds",
          "tidewater-coffee": "your first sip on a slow morning"}
+
+NAME = "NAMEX"    # ALLCAPS placeholders the translator keeps; filled per creator
+NICHE = "NICHEX"
 
 
 def members(task):
@@ -25,15 +28,34 @@ def members(task):
             skip |= {r["handle"].lower() for r in csv.DictReader(f)}
     db = creators()
     rows = [db[i] for i in ids if i in db and db[i]["handle"].lower() not in skip]
+    # Pool "pick" tasks invite only a capped slice of a large pool, so *who* we pick
+    # drives the result. `data/past-messages.csv` shows acceptance varies widely by
+    # niche and is higher at lower view tiers, so the old "highest avg_views first"
+    # order front-loaded the worst converters. Rank pool candidates by learned
+    # acceptance (agent/targeting.py) so the invite budget hits the best converters
+    # first. Segment tasks invite everyone given, so their order is immaterial.
+    if task.get("pool"):
+        import targeting
+        return targeting.rank(rows)
     rows.sort(key=lambda r: -int(r["avg_views_30d"]))
     return rows
 
 
-def invite_text(skill, row, rate):
+def _invite_body(skill, rate):
+    """A per-(brand, rate) invite body with NAME/NICHE placeholders — identical
+    across creators of a language, so `render` translates it once per language
+    (cached). For English the placeholders just fill back the full personalization."""
     m = skill["meta"]
-    return (f"Hi {first_name(row)}! We love your {row['niche']} videos. {m['brand']} would love to send you our {m['hero']}. "
-            f"You'd earn {rate}% commission, plus a ${m['bonus_amount']} bonus for {m['bonus_videos']} videos posted within "
-            f"{m['bonus_days']} days of delivery. Idea: {IDEAS.get(m['skill'], 'show it in the first 3 seconds')}.")
+    return (f"Hi {NAME}! We love your {NICHE} videos. {m['brand']} would love to send you our {m['hero']}. "
+            f"You'd earn {rate}% commission, plus a ${m['bonus_amount']} bonus for {m['bonus_videos']} videos "
+            f"posted within {m['bonus_days']} days of delivery. Idea: {IDEAS.get(m['skill'], 'show it in the first 3 seconds')}.")
+
+
+def invite_for(skill, row, rate):
+    """(text, language) — invite in the creator's language, name and niche filled."""
+    body, lang = render(_invite_body(skill, rate), row.get("language", "en") or "en", must_keep=(NAME, NICHE))
+    text = body.replace(NAME, first_name(row)).replace(NICHE, row.get("niche", ""))
+    return text, lang
 
 
 def run(task, ac, skill, log):
@@ -56,8 +78,8 @@ def run(task, ac, skill, log):
             break
         while True:
             try:
-                send_inv(ac, r["creator_id"], m["targeted_rate"], invite_text(skill, r, m["targeted_rate"]),
-                         {**inv_meta, "language": "en"})
+                itext, ilang = invite_for(skill, r, m["targeted_rate"])
+                send_inv(ac, r["creator_id"], m["targeted_rate"], itext, {**inv_meta, "language": ilang})
                 sent += 1
                 break
             except SimError as e:
@@ -85,10 +107,13 @@ def run(task, ac, skill, log):
                 continue
             try:
                 if re.search(r"invite|where do i accept", low):
-                    send_inv(ac, item["creator_id"], m["targeted_rate"],
-                             invite_text(skill, r, m["targeted_rate"]), {**inv_meta, "language": "en"})
+                    itext, ilang = invite_for(skill, r, m["targeted_rate"])
+                    send_inv(ac, item["creator_id"], m["targeted_rate"], itext, {**inv_meta, "language": ilang})
                 else:
-                    text, meta = answer(skill, r, item["text"], m["targeted_rate"])
+                    # Bulk outreach: deterministic template reply (LLM drafting is
+                    # reserved for the dedicated inbound/sample/live negotiations —
+                    # per-replier LLM calls here would blow the time budget).
+                    text, meta = answer(skill, r, item["text"], m["targeted_rate"], use_llm=False)
                     send_msg(ac, item["creator_id"], text, meta)
             except SimError as e:
                 if e.code in ("campaign_closed", "budget_exhausted"):
