@@ -103,7 +103,7 @@ In `notes.md` → **Skill review**: every file, marked promote / merge / reject 
 - Sim limits (`sim/API.md`): 60 messages per brand per sim hour, 500 per day (invites count) → `rate_limited`; each run/task also has a message budget → `budget_exhausted`.
 - **Do not edit** `sim/` or `dashboard.py`.
 - **Do not read** sim internals (pack contents, engine source, run folder `state.db`) to learn outcomes — that fails the case. Talk only through `sim/API.md`.
-- **Enforce these two "do not" rules mechanically, not just by prose** (planned — to be implemented in a separate session; not wired up yet):
+- **Enforce these two "do not" rules mechanically, not just by prose**:
   1. **Permission deny-rules in `.claude/settings.json`.** `deny` outranks `allow`, so block exactly what the case forbids while keeping what it needs: deny `Edit`/`Write` on `./sim/**` and `./dashboard.py`; deny `Read` on `./sim/_core.pack`, `./sim/round2.pack`, `./sim/affiliate_center.py`, `./sim/pack.py`, and `**/state.db`; keep `Read(./sim/API.md)` allowed (it is required).
   2. **A `PreToolUse` hook on `Bash`** to close the shell bypass (permission globs don't catch `cat sim/_core.pack` or `python3 -c "...state.db..."`): the hook greps the command for forbidden paths (`*.pack`, `state.db`, `sim/affiliate_center.py`, `sim/pack.py`) and blocks the call.
   Scope note: this is build-time discipline for our own agent and shows clean intent in the session export; it does not travel to their test run (they run only `agent/run.py` + `skills/` in their own env), and grading stays honor-based ("we read your session export"). Not a hard sandbox — defense-in-depth.
