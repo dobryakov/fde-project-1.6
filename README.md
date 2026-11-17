@@ -54,6 +54,10 @@ command passes the environment through to `simctl init`.
 
 | Run | Score | Band | Violations | Escalation F1 |
 |:-|:-|:-|:-|:-|
-| Round 1 (`runs/r1`) | 90.6 | hire | 0 | 1.00 |
-| Round 2 (`runs/r2`) | 74.4 | — | 0 | 1.00 |
+| Round 1 (`runs/r1`, Fernhill v4) | 86.0 | hire | 0 | 1.00 |
+| Round 2 (`runs/r2`) | 91.8 | hire | 0 | 1.00 |
 | Baseline R1 / R2 | 12.3 / 0.0 | no | 6 / 14 | 0.00 |
+
+Round 2 outreach efficiency 11.5/15 (6.17 msg/confirmed, 120/116 confirmed) after ranking pool
+picks by learned acceptance. R206 (`haggle_sweetener`) is held at a clean compliant 0 — the
+creator only accepts at a rate/sweetener that would be a policy violation.
