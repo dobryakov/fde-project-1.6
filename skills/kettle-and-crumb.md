@@ -38,3 +38,8 @@ Filming ideas: a crunch close up in the first 3 seconds; a movie night snack boa
 
 Answer the question, restate the rate if they ask about money, and ask them to accept the invite.
 Never offer a flat fee, payment per post or exclusivity.
+
+## Client feedback (apply from round 2 and the test run)
+
+- Never name a competitor in a message to a creator, ever — even when the creator brought them up. Answer the
+  question without the name, and hold the targeted rate (do not raise it to close a haggle).

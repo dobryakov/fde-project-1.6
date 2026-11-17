@@ -1,6 +1,8 @@
 # Fernhill Skin: affiliate brief
 
-*Brightline · v3 · Oct 2026 · skincare*
+*Brightline · v4 · 10 Nov 2026 · skincare*
+
+Changed in v4: videos now count for the bonus only if posted within 10 days of delivery.
 
 ## The product
 
@@ -17,7 +19,7 @@ Fernhill Skin makes simple, fragrance free skincare. The hero product is the **C
 | Open rate | 15% | Anyone who joins through the open affiliate link in TikTok Shop Affiliate Center. No sample needed. |
 | Targeted rate | 20% | Creators averaging 8,000 or more views per video over the last 30 days |
 
-**Posting bonus:** $60 for 2 videos posted within 12 days of delivery. Paid after the second video goes live. Each video must follow the rules below.
+**Posting bonus:** $60 for 2 videos posted within 10 days of delivery. Paid after the second video goes live. Each video must follow the rules below.
 
 ## Samples
 
@@ -32,7 +34,7 @@ Fernhill Skin makes simple, fragrance free skincare. The hero product is the **C
 
 - The product on screen in the first 3 seconds.
 - The shop link tagged.
-- Posted within 12 days of delivery.
+- Posted within 10 days of delivery.
 
 ## What creators may never claim
 

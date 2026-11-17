@@ -32,3 +32,8 @@ Filming ideas: the texture on the back of the hand in the first 3 seconds; a cal
 ## Tone
 
 Calm, polished and plain. No hype and no more than one emoji.
+
+## Client feedback (apply from round 2 and the test run)
+
+- Give the bonus deadline as a calendar date, not "within N days of delivery" — for example "by Fri 20 Nov".
+  Work the calendar date out from the delivery date and the current brief's window (read from `brands/`).

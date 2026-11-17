@@ -38,3 +38,9 @@ Filming ideas: the first sip on a slow morning; a cold brew pour in slow motion;
 
 Answer the question, restate the rate if they ask about money, and ask them to accept the invite.
 Never offer a flat fee, payment per post or exclusivity.
+
+## Client feedback (apply from round 2 and the test run)
+
+- When a creator haggles on the rate, do not sweeten it with a second product or an extra sample. One sample per
+  creator per product is the rule. Offer them a good filming idea instead.
+- Never name a competitor back to a creator, even one they named.
