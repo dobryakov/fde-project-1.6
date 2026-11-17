@@ -19,6 +19,7 @@ ROOT = os.path.abspath(os.path.join(HERE, ".."))
 sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(ROOT, "sim"))
 
+import ledger  # noqa: E402
 import llm  # noqa: E402
 import skills  # noqa: E402
 from affiliate_center import AffiliateCenter, init_run  # noqa: E402
@@ -46,6 +47,7 @@ def main():
     if not os.path.exists(os.path.join(run_dir, "state.db")):
         init_run(run_dir)
     llm.set_log(run_dir)
+    ledger.set_dir(run_dir)  # cross-task ledger: bonuses paid once, safety holds
     only = {t for t in args.only.split(",") if t}
     with open(args.tasks, encoding="utf-8") as f:
         tasks = [json.loads(line) for line in f if line.strip()]

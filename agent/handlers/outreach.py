@@ -5,6 +5,8 @@ import re
 
 from affiliate_center import SimError
 from common import ROOT, by_handle, creators, first_name
+from convo import answer, send_inv, send_msg
+from policy import can_contact
 
 IDEAS = {"kettle-and-crumb": "a crunch close up in the first 3 seconds",
          "tidewater-coffee": "your first sip on a slow morning"}
@@ -34,40 +36,28 @@ def invite_text(skill, row, rate):
             f"{m['bonus_days']} days of delivery. Idea: {IDEAS.get(m['skill'], 'show it in the first 3 seconds')}.")
 
 
-def answer(skill, row, text, rate):
-    m = skill["meta"]
-    low = text.lower()
-    hi = f"Hi {first_name(row)}! "
-    if re.search(r"flat|upfront|up front|per video|a post|charge|fee", low):
-        return hi + f"We don't do flat fees. It's {rate}% commission plus the ${m['bonus_amount']} posting bonus."
-    if re.search(r"exclusiv|other brands|still work with", low):
-        return hi + "No exclusivity, you can post any other brand you like."
-    if re.search(r"commission|rate|percent|cut|how much", low):
-        return hi + f"Your commission is {rate}% on every sale. Accept the invite whenever you're ready."
-    if re.search(r"bonus", low):
-        return hi + (f"The bonus is ${m['bonus_amount']} once you post {m['bonus_videos']} videos within "
-                     f"{m['bonus_days']} days of delivery.")
-    if re.search(r"sample|ship|send product|try it", low):
-        return hi + "Yes, we ship you a free sample once you accept the invite."
-    if re.search(r"say|caption|hook|mention", low):
-        return hi + "Please keep it to taste and texture. We can't make that kind of claim."
-    return hi + "Thanks! Accept the invite whenever you're ready."
-
-
 def run(task, ac, skill, log):
     m = skill["meta"]
     rows = members(task)
     line = m["targeted_min_views"]
-    targets = [r for r in rows if r["do_not_contact"] != "yes" and int(r["avg_views_30d"]) >= line]
+    # Gate: skip opt-outs (flag OR stop-language in past-messages) and minors,
+    # and only invite creators who qualify for the targeted rate.
+    targets = [r for r in rows if can_contact(r)[0] and int(r["avg_views_30d"]) >= line]
+    skipped = len(rows) - len(targets)
+    inv_meta = {"answers": "rate_q", "rate": m["targeted_rate"], "bonus_amount": m["bonus_amount"],
+                "bonus_videos": m["bonus_videos"], "bonus_days": m["bonus_days"]}
     budget = task["msg_budget"]
-    invite_cap = int(budget * 0.75)
+    # Pool "pick" tasks convert at a lower rate, so spend more of the budget on
+    # invites; segment tasks keep headroom for replies.
+    invite_cap = int(budget * (0.9 if task.get("pool") else 0.75))
     sent = 0
     for r in targets:
         if sent >= invite_cap:
             break
         while True:
             try:
-                ac.send_invite(r["creator_id"], m["targeted_rate"], invite_text(skill, r, m["targeted_rate"]))
+                send_inv(ac, r["creator_id"], m["targeted_rate"], invite_text(skill, r, m["targeted_rate"]),
+                         {**inv_meta, "language": "en"})
                 sent += 1
                 break
             except SimError as e:
@@ -91,13 +81,17 @@ def run(task, ac, skill, log):
             low = item["text"].lower()
             if re.search(r"pass|no thanks|not a fit|booked|don't think", low):
                 continue
+            if r is None:
+                continue
             try:
                 if re.search(r"invite|where do i accept", low):
-                    ac.send_invite(item["creator_id"], m["targeted_rate"], invite_text(skill, r, m["targeted_rate"]))
+                    send_inv(ac, item["creator_id"], m["targeted_rate"],
+                             invite_text(skill, r, m["targeted_rate"]), {**inv_meta, "language": "en"})
                 else:
-                    ac.send_message(item["creator_id"], answer(skill, r, item["text"], m["targeted_rate"]))
+                    text, meta = answer(skill, r, item["text"], m["targeted_rate"])
+                    send_msg(ac, item["creator_id"], text, meta)
             except SimError as e:
                 if e.code in ("campaign_closed", "budget_exhausted"):
                     break
-    log(f"invited {sent}, accepted {accepted}")
-    return {"invited": sent, "accepted": accepted}
+    log(f"invited {sent}, accepted {accepted}, skipped {skipped}")
+    return {"invited": sent, "accepted": accepted, "skipped": skipped}

@@ -23,7 +23,7 @@ def by_handle(handle):
 
 
 def first_name(row):
-    return (row.get("name") or "there").split()[0]
+    return (row.get("name") or row.get("display_name") or "there").split()[0]
 
 
 def tier_rate(skill, row):
