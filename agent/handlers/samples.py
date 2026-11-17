@@ -5,7 +5,7 @@ import re
 import ledger
 from common import creators, first_name
 from convo import answer, send_msg, work_thread
-from escalation import holding_reply, needed_person
+from escalation import holding_reply, needed_person, safety_holding_reply
 from policy import sample_decision
 
 
@@ -31,6 +31,29 @@ def _same_address(a, b):
     return na.split()[:3] == nb.split()[:3]
 
 
+def _safety_followup(first, person, txt):
+    """Reply to a follow-up while a safety/expert review is open. Never ships,
+    promises a product, gives a date, or says it wasn't our product. Returns None
+    when there's nothing new to add (so we don't repeat ourselves)."""
+    low = (txt or "").lower()
+    who = "Nora from our care team" if person == "nora" else "our team"
+    # "Who / when will be in touch?"
+    if re.search(r"who|when|how long|hear back|get back|be in touch|reach out|contact me", low):
+        return (f"Hi {first}! {who} will reach out to you directly — usually within a day or two. "
+                f"Thanks so much for your patience.", None)
+    # Asking for a new/another product while the review is open.
+    if re.search(r"send|ship|another|fish oil|next (one|product)|more|sample|try", low):
+        return (f"Hi {first}! While our care team takes a look, we're holding off on sending anything "
+                f"new — I don't want to ship more until we've checked in. I'll be in touch as soon as "
+                f"we can.", None)
+    # A thank-you / acknowledgement needs no further message.
+    if re.search(r"thank|thanks|ok\b|okay|got it|sounds good|appreciate|no worries", low):
+        return None
+    # Anything else: a short, warm reassurance (no product talk, no claims).
+    return (f"Hi {first}! Totally hear you — {who} will follow up directly and we'll make sure you're "
+            f"looked after. Appreciate you flagging it.", None)
+
+
 def run(task, ac, skill, log):
     row = creators()[task["creator_id"]]
     cid = row["creator_id"]
@@ -49,11 +72,19 @@ def run(task, ac, skill, log):
     person = needed_person(task, skill, row, msg)
     if person:
         ac.escalate(person, f"{m['brand']} creator {row['handle']}: {msg}", creator_id=cid)
-        ac.send_message(cid, holding_reply(first, person))
+        hold_text = safety_holding_reply(first) if person == "nora" else holding_reply(first, person)
         if person == "nora":
             ledger.mark_safety_hold(cid)  # no new sample until Nora clears (pod rule)
         log(f"escalated to {person}")
-        return {"escalated": person}
+        # Stay with the thread across the window: keep reassuring and answering the
+        # creator's follow-ups (e.g. "who's in touch?", "can you send X?") while the
+        # review is open — ship nothing, promise nothing, re-escalate nothing, never
+        # say it wasn't the product. A one-and-done message loses the conversation.
+        res = work_thread(ac, cid, skill, row, m.get("targeted_rate"), task.get("days"), log,
+                          first=(hold_text, None), seed_text=msg,
+                          reply_fn=lambda txt: _safety_followup(first, person, txt),
+                          persist_close=False)
+        return {"escalated": person, **res}
 
     # 2) A sample request: decide with the gates, ship a shippable lot.
     product = task.get("product_requested")
@@ -154,7 +185,7 @@ def run(task, ac, skill, log):
         # Multi-day conversations ("work it to a result"): keep answering replies.
         if task.get("days"):
             res = work_thread(ac, cid, skill, row, m.get("targeted_rate"), task.get("days"), log,
-                              first=(text, meta))
+                              first=(text, meta), seed_text=msg, resend_invite=False)
             return {"replied": True, **res}
         send_msg(ac, cid, text, meta)
         log("answered")

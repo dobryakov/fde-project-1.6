@@ -86,3 +86,12 @@ def holding_reply(first, person):
            "tomas": "our creator team", "nora": "our care team"}.get(person, "our team")
     return (f"Hi {first}! Thanks for reaching out. I've passed this to {who} and "
             f"they'll follow up with you soon.")
+
+
+def safety_holding_reply(first):
+    """Reaction to Nora: thank them, care team will be in touch, hold new samples
+    until cleared, and never tell the creator it wasn't the product."""
+    return (f"Hi {first}! Thank you so much for telling us — your pet's comfort comes first. "
+            f"I've looped in our care team (Nora) and she'll reach out to you directly. To be safe, "
+            f"we'll hold off on sending anything new until she's had a chance to check in. Really "
+            f"appreciate you flagging it.")

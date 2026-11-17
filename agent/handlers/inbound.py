@@ -23,5 +23,6 @@ def run(task, ac, skill, log):
         text, meta = answer(skill, row, msg, rate)
     else:  # a ghost: no message yet, nudge them to accept
         text, meta = answer(skill, row, "", rate)
-    res = work_thread(ac, cid, skill, row, rate, task.get("days"), log, first=(text, meta))
+    res = work_thread(ac, cid, skill, row, rate, task.get("days"), log, first=(text, meta),
+                      seed_text=msg, resend_invite=bool(msg))
     return {"replied": True, **res}

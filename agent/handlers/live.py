@@ -6,7 +6,8 @@ import re
 import ledger
 from affiliate_center import SimError
 from common import creators, first_name
-from escalation import holding_reply, needed_person
+from convo import CLAIM_RE, answer, send_msg
+from escalation import holding_reply, needed_person, safety_holding_reply
 from policy import bonus_owed, deadline_date, _parse_dt  # noqa: F401
 
 
@@ -55,19 +56,27 @@ def run(task, ac, skill, log):
         person = needed_person(task, skill, row, msg)
         if person:
             ac.escalate(person, f"{m['brand']} creator {row['handle']}: {msg}", creator_id=cid)
-            ac.send_message(cid, holding_reply(first, person))
+            ac.send_message(cid, safety_holding_reply(first) if person == "nora" else holding_reply(first, person))
             if person == "nora":
                 ledger.mark_safety_hold(cid)
             log(f"escalated to {person}")
             return {"escalated": person}
         reply = _creative_reply(task, skill, first, msg)
-        if reply is None and deadline:
-            reply = (f"Hi {first}! No worries — as long as both videos are up by {deadline} (within "
-                     f"{m['bonus_days']} days of delivery), the ${m['bonus_amount']} bonus still counts. "
-                     f"Shout if you need a filming idea!")
-        if reply:
+        if reply is not None:
             ac.send_message(cid, reply)
             log("answered creative/exception")
+        elif CLAIM_RE.search(msg.lower()):
+            # A claim question (can I say X?): answer it with the brief/skill's
+            # allowed vs banned wording before anything else (LLM-drafted).
+            text, meta = answer(skill, row, msg, m.get("targeted_rate"))
+            send_msg(ac, cid, text, meta)
+            log("answered claim")
+        elif deadline:
+            # Late/sick or general: reassure with the calendar deadline.
+            ac.send_message(cid, f"Hi {first}! No worries — as long as both videos are up by {deadline} "
+                                 f"(within {m['bonus_days']} days of delivery), the ${m['bonus_amount']} "
+                                 f"bonus still counts. Shout if you need a filming idea!")
+            log("answered deadline")
 
     # Delivery never completed (returned/exception): the creator can't film, so
     # this is an ops problem, not a posting nudge.
@@ -101,9 +110,13 @@ def run(task, ac, skill, log):
             log(f"pay_bonus refused: {e.code}")
             return {"paid": False, "error": e.code}
 
-    # Not owed yet: nudge. Name the real blocker (missing link, more videos).
+    # Not owed yet: nudge — but don't pile a nudge on top of a substantive answer
+    # this tick (that reads as pushy). If we answered a question, let the work-loop
+    # handle posting; otherwise nudge now, naming the real blocker.
     reason = ", ".join(sorted(issues)) if issues else f"{valid} of {need} videos so far"
     by = f" by {deadline}" if deadline else f" within {m['bonus_days']} days of delivery"
+    # A posting nudge is always on-topic for a live campaign (it's what prompts the
+    # creator to post and earn the bonus), so send it even after answering a message.
     nudge = (f"Hi {first}! You're at {valid} of {need} videos for the ${m['bonus_amount']} bonus"
              f"{(' — fix: ' + reason) if issues else ''}. Post the rest{by} and it's yours. "
              f"Idea: show the product in the first 3 seconds with the shop link tagged.")
@@ -126,7 +139,7 @@ def run(task, ac, skill, log):
                 person = needed_person(task, skill, row, txt)
                 if person:
                     ac.escalate(person, f"{m['brand']} creator {row['handle']}: {txt}", creator_id=cid)
-                    ac.send_message(cid, holding_reply(first, person))
+                    ac.send_message(cid, safety_holding_reply(first) if person == "nora" else holding_reply(first, person))
                     if person == "nora":
                         ledger.mark_safety_hold(cid)
                     log(f"escalated to {person}")
