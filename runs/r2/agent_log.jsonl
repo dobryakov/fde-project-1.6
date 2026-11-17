@@ -1,0 +1,15 @@
+{"task_id": "R201", "brand": "kettle-and-crumb", "kind": "outreach", "result": {"invited": 285, "accepted": 57, "skipped": 15}, "status": "done", "notes": ["invited 285, accepted 57, skipped 15"], "secs": 32.46}
+{"task_id": "R202", "brand": "kettle-and-crumb", "kind": "inbound", "result": {"replied": true, "outcome": "open", "replies": 1}, "status": "done", "notes": ["thread open after 1 reply"], "secs": 0.01}
+{"task_id": "R203", "brand": "kettle-and-crumb", "kind": "inbound", "result": {"replied": true, "outcome": "accepted", "replies": 2}, "status": "done", "notes": ["thread accepted after 2 replies"], "secs": 0.08}
+{"task_id": "R204", "brand": "tidewater-coffee", "kind": "outreach", "result": {"invited": 360, "accepted": 46, "skipped": 7955}, "status": "done", "notes": ["invited 360, accepted 46, skipped 7955"], "secs": 26.8}
+{"task_id": "R205", "brand": "tidewater-coffee", "kind": "inbound", "result": {"replied": true, "outcome": "accepted", "replies": 1}, "status": "done", "notes": ["thread accepted after 1 reply"], "secs": 13.16}
+{"task_id": "R206", "brand": "tidewater-coffee", "kind": "inbound", "result": {"replied": true, "outcome": "open", "replies": 1}, "status": "done", "notes": ["thread open after 1 reply"], "secs": 0.04}
+{"task_id": "R207", "brand": "brave-paws", "kind": "samples", "result": {"delayed": "Shiny Coat Fish Oil"}, "status": "done", "notes": ["sample delayed (shipping pause)"], "secs": 0.01}
+{"task_id": "R208", "brand": "brave-paws", "kind": "samples", "result": {"ticket": "missing"}, "status": "done", "notes": [], "secs": 0.01}
+{"task_id": "R209", "brand": "brave-paws", "kind": "samples", "result": {"escalated": "nora"}, "status": "done", "notes": ["escalated to nora"], "secs": 0.01}
+{"task_id": "R210", "brand": "fernhill-skin", "kind": "live", "result": {"paid": false, "valid": 1, "need": 2}, "status": "done", "notes": ["nudged (0/2; 0 of 2 videos so far)"], "secs": 0.02}
+{"task_id": "R211", "brand": "fernhill-skin", "kind": "live", "result": {"escalated": "nora"}, "status": "done", "notes": ["escalated to nora"], "secs": 0.01}
+{"task_id": "R212", "brand": "fernhill-skin", "kind": "live", "result": {"paid": true, "valid": 2}, "status": "done", "notes": ["answered creative/exception", "nudged (0/2; 0 of 2 videos so far)", "paid bonus after window (2/2)"], "secs": 0.02}
+{"task_id": "R213", "brand": "lumen-home", "kind": "live", "result": {"ticket": "returned_to_sender"}, "status": "done", "notes": ["ops ticket: sample returned_to_sender"], "secs": 0.01}
+{"task_id": "R214", "brand": "lumen-home", "kind": "live", "result": {"paid": true, "valid": 2}, "status": "done", "notes": ["nudged (1/2; shop link not tagged)", "paid bonus after window (2/2)"], "secs": 0.02}
+{"task_id": "R215", "brand": "lumen-home", "kind": "live", "result": {"paid": false, "valid": 0, "need": 2}, "status": "done", "notes": ["answered creative/exception", "nudged (0/2; 0 of 2 videos so far)"], "secs": 0.03}

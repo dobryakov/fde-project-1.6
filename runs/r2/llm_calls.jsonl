@@ -1,0 +1,10 @@
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 5.62, "prompt_chars": 386, "out_chars": 245, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 6.75, "prompt_chars": 386, "out_chars": 238, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 6.93, "prompt_chars": 386, "out_chars": 85, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 6.23, "prompt_chars": 386, "out_chars": 245, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 5.38, "prompt_chars": 384, "out_chars": 256, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 6.69, "prompt_chars": 385, "out_chars": 243, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 5.45, "prompt_chars": 384, "out_chars": 242, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 4.93, "prompt_chars": 385, "out_chars": 245, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 6.33, "prompt_chars": 328, "out_chars": 198, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 6.82, "prompt_chars": 328, "out_chars": 200, "error": null}

@@ -1,0 +1,7 @@
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 5.62, "prompt_chars": 386, "out_chars": 90, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 6.5, "prompt_chars": 385, "out_chars": 246, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 5.69, "prompt_chars": 385, "out_chars": 247, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 6.3, "prompt_chars": 384, "out_chars": 236, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 6.24, "prompt_chars": 386, "out_chars": 244, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 5.62, "prompt_chars": 385, "out_chars": 237, "error": null}
+{"tag": "translate", "provider": "claude_cli", "model": "", "secs": 5.93, "prompt_chars": 385, "out_chars": 242, "error": null}

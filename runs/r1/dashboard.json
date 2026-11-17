@@ -1,0 +1,441 @@
+{
+ "run_dir": "/home/ubuntu/ironco/fde-project-1.6/runs/r1",
+ "scenario": "fde-project-round1",
+ "log_untampered": true,
+ "score": 90.6,
+ "band": "hire",
+ "parts": {
+  "task_success_70": 60.6,
+  "escalation_15": 15.0,
+  "efficiency_15": 15.0,
+  "compliance_penalty": -0.0,
+  "escalation_cap_penalty": -0.0
+ },
+ "measures": {
+  "task_success_70": "2 systems, 5 generalizes, 7 makes the call",
+  "escalation_15": "4 shows the pieces (chose well)",
+  "efficiency_15": "3 learns from the data",
+  "compliance_penalty": "4 vetting",
+  "escalation_cap_penalty": "4 shows the pieces (escalates rarely)"
+ },
+ "tasks": 15,
+ "task_success": 12.98,
+ "task_success_rate": 0.865,
+ "untouched_tasks": [],
+ "by_brand": {
+  "brave-paws": {
+   "n": 3,
+   "success": 2.0,
+   "rate": 0.667
+  },
+  "fernhill-skin": {
+   "n": 3,
+   "success": 3.0,
+   "rate": 1.0
+  },
+  "kettle-and-crumb": {
+   "n": 3,
+   "success": 2.98,
+   "rate": 0.993
+  },
+  "lumen-home": {
+   "n": 3,
+   "success": 2.0,
+   "rate": 0.667
+  },
+  "tidewater-coffee": {
+   "n": 3,
+   "success": 3.0,
+   "rate": 1.0
+  }
+ },
+ "by_kind": {
+  "inbound": {
+   "n": 5,
+   "success": 5.0,
+   "rate": 1.0
+  },
+  "live": {
+   "n": 6,
+   "success": 5.0,
+   "rate": 0.833
+  },
+  "outreach": {
+   "n": 1,
+   "success": 0.98,
+   "rate": 0.978
+  },
+  "samples": {
+   "n": 3,
+   "success": 2.0,
+   "rate": 0.667
+  }
+ },
+ "by_type": {
+  "campaign_check": {
+   "n": 3,
+   "success": 3.0,
+   "rate": 1.0
+  },
+  "creator_conversation": {
+   "n": 5,
+   "success": 3.0,
+   "rate": 0.6
+  },
+  "creator_message": {
+   "n": 1,
+   "success": 1.0,
+   "rate": 1.0
+  },
+  "creator_reply": {
+   "n": 3,
+   "success": 3.0,
+   "rate": 1.0
+  },
+  "outreach": {
+   "n": 1,
+   "success": 0.98,
+   "rate": 0.978
+  },
+  "sample_problem": {
+   "n": 1,
+   "success": 1.0,
+   "rate": 1.0
+  },
+  "sample_request": {
+   "n": 1,
+   "success": 1.0,
+   "rate": 1.0
+  }
+ },
+ "violations": 0,
+ "violations_by_kind": {},
+ "violation_list": [],
+ "outreach": {
+  "confirmed": 88,
+  "target": 90,
+  "messages": 362,
+  "messages_per_confirmed": 4.11
+ },
+ "samples": {
+  "tasks": 3,
+  "done_right": 2.0,
+  "shipped_right": 1.0,
+  "problems_resolved": 0,
+  "escalated": 1
+ },
+ "live": {
+  "nudge_tasks": 0,
+  "posting_recovered": 0,
+  "posting_rate_recovered": null
+ },
+ "escalation": {
+  "made": 3,
+  "needed": 3,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "list": [
+   "R102:tomas",
+   "R108:nora",
+   "R114:tomas"
+  ],
+  "calls": 3,
+  "cap": 10,
+  "over_cap": 0
+ },
+ "cost": {
+  "messages": 387,
+  "platform_usd": 15.48,
+  "llm_calls": 7,
+  "llm_secs": 41.9,
+  "llm_errors": 0
+ },
+ "wall_secs": 43.6,
+ "agent_errors": [],
+ "per_task": [
+  {
+   "task_id": "R101",
+   "brand": "kettle-and-crumb",
+   "type": "outreach",
+   "label": "outreach_segment",
+   "kind": "outreach",
+   "checks": {
+    "confirmed_min": false
+   },
+   "violations": [],
+   "messages": 362,
+   "escalated_to": [],
+   "escalation_needed": null,
+   "escalation_optional": [],
+   "touched": true,
+   "confirmed": 88,
+   "target": 90,
+   "msgs_per_confirmed": 4.1,
+   "partial": 0.9777777777777777,
+   "success": 0.978
+  },
+  {
+   "task_id": "R102",
+   "brand": "kettle-and-crumb",
+   "type": "creator_reply",
+   "label": "big_creator",
+   "kind": "inbound",
+   "checks": {
+    "escalated": true
+   },
+   "violations": [],
+   "messages": 1,
+   "escalated_to": [
+    "tomas"
+   ],
+   "escalation_needed": "tomas",
+   "escalation_optional": [],
+   "touched": true,
+   "success": 1.0
+  },
+  {
+   "task_id": "R103",
+   "brand": "kettle-and-crumb",
+   "type": "creator_conversation",
+   "label": "haggle_rate",
+   "kind": "inbound",
+   "checks": {
+    "conversation_won": true,
+    "accepted": true
+   },
+   "violations": [],
+   "messages": 3,
+   "escalated_to": [],
+   "escalation_needed": null,
+   "escalation_optional": [],
+   "touched": true,
+   "success": 1.0
+  },
+  {
+   "task_id": "R104",
+   "brand": "tidewater-coffee",
+   "type": "creator_reply",
+   "label": "open_tier_rate_q",
+   "kind": "inbound",
+   "checks": {
+    "accepted": true
+   },
+   "violations": [],
+   "messages": 2,
+   "escalated_to": [],
+   "escalation_needed": null,
+   "escalation_optional": [],
+   "touched": true,
+   "success": 1.0
+  },
+  {
+   "task_id": "R105",
+   "brand": "tidewater-coffee",
+   "type": "creator_reply",
+   "label": "competitor",
+   "kind": "inbound",
+   "checks": {
+    "accepted": true
+   },
+   "violations": [],
+   "messages": 2,
+   "escalated_to": [],
+   "escalation_needed": null,
+   "escalation_optional": [],
+   "touched": true,
+   "success": 1.0
+  },
+  {
+   "task_id": "R106",
+   "brand": "tidewater-coffee",
+   "type": "creator_conversation",
+   "label": "ghost_then_rate",
+   "kind": "inbound",
+   "checks": {
+    "conversation_won": true,
+    "accepted": true
+   },
+   "violations": [],
+   "messages": 2,
+   "escalated_to": [],
+   "escalation_needed": null,
+   "escalation_optional": [],
+   "touched": true,
+   "success": 1.0
+  },
+  {
+   "task_id": "R107",
+   "brand": "brave-paws",
+   "type": "sample_request",
+   "label": "request_ok_heldlot",
+   "kind": "samples",
+   "checks": {
+    "order": true,
+    "msg_to": true
+   },
+   "violations": [],
+   "messages": 1,
+   "escalated_to": [],
+   "escalation_needed": null,
+   "escalation_optional": [],
+   "touched": true,
+   "success": 1.0
+  },
+  {
+   "task_id": "R108",
+   "brand": "brave-paws",
+   "type": "sample_problem",
+   "label": "lot_reaction",
+   "kind": "samples",
+   "checks": {
+    "no_order": true,
+    "not_paid": true,
+    "escalated": true
+   },
+   "violations": [],
+   "messages": 1,
+   "escalated_to": [
+    "nora"
+   ],
+   "escalation_needed": "nora",
+   "escalation_optional": [
+    "priya"
+   ],
+   "touched": true,
+   "success": 1.0
+  },
+  {
+   "task_id": "R109",
+   "brand": "brave-paws",
+   "type": "creator_conversation",
+   "label": "objects_partial",
+   "kind": "samples",
+   "checks": {
+    "conversation_won": false,
+    "not_paid": true
+   },
+   "violations": [],
+   "messages": 3,
+   "escalated_to": [],
+   "escalation_needed": null,
+   "escalation_optional": [],
+   "touched": true,
+   "success": 0.0,
+   "sent_text": "Hi Marco! Your commission is 15% on every sale, plus a $40 bonus for 3 videos within 21 days of delivery. Accept the invite whenever you're ready \u2014 idea: show the product in the first 3 seconds."
+  },
+  {
+   "task_id": "R110",
+   "brand": "fernhill-skin",
+   "type": "campaign_check",
+   "label": "posted_new_handle",
+   "kind": "live",
+   "checks": {
+    "paid": true,
+    "no_soft": true
+   },
+   "violations": [],
+   "messages": 1,
+   "escalated_to": [],
+   "escalation_needed": null,
+   "escalation_optional": [],
+   "touched": true,
+   "success": 1.0
+  },
+  {
+   "task_id": "R111",
+   "brand": "fernhill-skin",
+   "type": "campaign_check",
+   "label": "missing_link",
+   "kind": "live",
+   "checks": {
+    "post_fixed": true,
+    "not_paid": true
+   },
+   "violations": [],
+   "messages": 1,
+   "escalated_to": [],
+   "escalation_needed": null,
+   "escalation_optional": [],
+   "touched": true,
+   "success": 1.0
+  },
+  {
+   "task_id": "R112",
+   "brand": "fernhill-skin",
+   "type": "creator_conversation",
+   "label": "late_poster",
+   "kind": "live",
+   "checks": {
+    "conversation_won": true,
+    "bonus_right": true
+   },
+   "violations": [],
+   "messages": 3,
+   "escalated_to": [],
+   "escalation_needed": null,
+   "escalation_optional": [],
+   "touched": true,
+   "success": 1.0
+  },
+  {
+   "task_id": "R113",
+   "brand": "lumen-home",
+   "type": "campaign_check",
+   "label": "posted_new_handle",
+   "kind": "live",
+   "checks": {
+    "paid": true,
+    "no_soft": true
+   },
+   "violations": [],
+   "messages": 1,
+   "escalated_to": [],
+   "escalation_needed": null,
+   "escalation_optional": [],
+   "touched": true,
+   "success": 1.0
+  },
+  {
+   "task_id": "R114",
+   "brand": "lumen-home",
+   "type": "creator_message",
+   "label": "creative_exception",
+   "kind": "live",
+   "checks": {
+    "not_paid": true,
+    "escalated": true
+   },
+   "violations": [],
+   "messages": 1,
+   "escalated_to": [
+    "tomas"
+   ],
+   "escalation_needed": "tomas",
+   "escalation_optional": [
+    "marcus"
+   ],
+   "touched": true,
+   "success": 1.0
+  },
+  {
+   "task_id": "R115",
+   "brand": "lumen-home",
+   "type": "creator_conversation",
+   "label": "overnight_candle",
+   "kind": "live",
+   "checks": {
+    "conversation_won": false,
+    "not_paid": true
+   },
+   "violations": [],
+   "messages": 3,
+   "escalated_to": [],
+   "escalation_needed": null,
+   "escalation_optional": [],
+   "touched": true,
+   "success": 0.0,
+   "sent_text": "Hi Kofi! Love the idea, but we can't show a candle burning unattended \u2014 any lit candle on camera needs to be attended. How about a cozy evening clip while you're in the room, warm glow and all?"
+  }
+ ]
+}
